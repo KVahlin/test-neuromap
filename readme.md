@@ -1,7 +1,7 @@
 
 # Тестовое задание для вакансии в Neuromap
 
-Описание (<https://github.com/ivryb/test/blob/master/meetings-light.md)>
+Описание <https://github.com/ivryb/test/blob/master/meetings-light.md>
 
 ## Используется
 
@@ -16,10 +16,8 @@
 
 - dist/index.html
 
-****
-
 ``` bash
-# Установить зависимостей
+# Установка зависимостей
 npm install
 
 # Запуск в режиме development
