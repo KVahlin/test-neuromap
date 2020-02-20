@@ -5,7 +5,7 @@
 			<h1>Встречи</h1>
 			<el-row :gutter="24">
 				<el-col :span="8" v-for="event in this.events" :key="event.id">
-					<Event :params="event"></Event>
+					<Event :title="event.title" :start="event.start" :facilitator="event.facilitator" :secretary="event.secretary" :end="event.end"></Event>
 				</el-col>
 			</el-row>
 		</template>

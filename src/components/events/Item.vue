@@ -4,7 +4,7 @@
 		 <template>
 			<el-card class="event-card">
 				<div slot="header" class="clearfix">
-					<span>{{params.title}}</span>
+					<span>{{title}}</span>
                     <el-tag :type="this.status.tag" size="mini">{{this.status.label}}</el-tag>
 				</div>
 				<div  class="text">
@@ -22,7 +22,7 @@
 				</div>
                <div class="bottom">
                    <span>Дата и время встречи: </span>
-                   {{this.formatDate(this.params.start)}} с {{this.formatTime(this.params.start)}} до {{this.formatTime(this.params.end)}}
+                   {{this.formatDate(this.start)}} с {{this.formatTime(this.start)}} до {{this.formatTime(this.end)}}
 				</div>
 			</el-card>	
 		</template>
@@ -39,7 +39,7 @@
 	import moment from 'moment';
 	export default {
         
-        props:['params'],
+        props:['title','start','facilitator','secretary','end'],
 
 		//
 		//	--components
@@ -55,8 +55,8 @@
 		
 		data: function(){
 			return {
-                facilitator: this.$store.getters.userById(this.params.facilitator),
-                secretary: this.$store.getters.userById(this.params.secretary)
+                facilitator: this.$store.getters.userById(this.facilitator),
+                secretary: this.$store.getters.userById(this.secretary)
         	}
 		},
 		//
@@ -81,12 +81,12 @@
 		
 		computed: {
 			status:function() {
-				if(moment().isBetween(this.params.start, this.params.end, null, '[]')){
+				if(moment().isBetween(this.start, this.end, null, '[]')){
 					return {
                         label:"Проходит",
                         tag:"success"
                     }
-				} else if(moment().isBefore(this.params.start)){
+				} else if(moment().isBefore(this.start)){
 		 			return {
                         label:"Запланирована",
                         tag:"primary"
